@@ -1,20 +1,24 @@
-import React from 'react';
-import { Switch, Route, BrowserRouter as Router, Link } from 'react-router-dom'
-import { Home } from '../pages/Home/Home'
-import { Header } from '../components/Header/Header'
+import React from "react"
+import { Switch, Route, BrowserRouter as Router, Link } from "react-router-dom"
+import { Layout } from "antd"
+import { Home } from "./Home"
+import { HeaderPage } from "../components/HeaderPage"
 
+const { Content } = Layout
 
 export const Root = () => {
-    return <Router>
-        <div>
-            <Header />
-            <div className="container">
-                <Switch>
-                    <Route path="/" exact>
-                        <Home />
-                    </Route>
-                </Switch>
-            </div>
-        </div>
+  return (
+    <Router>
+      <Layout>
+        <HeaderPage />
+        <Content className="container">
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+          </Switch>
+        </Content>
+      </Layout>
     </Router>
+  )
 }
