@@ -1,6 +1,17 @@
-.item {
-    border: 1px solid green;
-    display: inline-block;
-    max-width: 200px;
-    margin: 10px;
+div.card {
+  margin: 10px;
+  max-width: 260px;
+  width: 100%;
+  display: inline-block;
+
+  .img {
+    max-width: 100%;
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+
 }
+

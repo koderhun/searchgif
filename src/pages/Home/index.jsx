@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react"
 import { Button, Input, Space } from "antd"
 import { useSearchQuery } from "../../redux"
-import { Item } from "../../components/Item/Item"
+import { Item } from "../../components/Item"
 import styles from "./styles.module.scss"
 
 const { Search } = Input

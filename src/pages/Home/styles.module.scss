@@ -14,3 +14,10 @@
   max-width: 580px;
   margin: auto;
 }
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 5px;
+  justify-content: center;
+}
