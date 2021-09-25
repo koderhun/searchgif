@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react"
-import { Button, Input, Space } from "antd"
+import { Button, Input, Spin } from "antd"
 import { useSearchQuery } from "../../redux"
 import { Item } from "../../components/Item"
 import styles from "./styles.module.scss"
@@ -7,9 +7,10 @@ import styles from "./styles.module.scss"
 const { Search } = Input
 
 export const Home = () => {
-  const { data, isLoading } = useSearchQuery("fuck")
-  const list = data?.data
   const [search, setSearch] = useState("")
+  const { data, isLoading } = useSearchQuery(search)
+  let list = []
+  list = data?.data
 
   console.log("data", list, isLoading)
 
@@ -17,10 +18,6 @@ export const Home = () => {
     console.log("val", value)
     setSearch(value)
   })
-
-  if (isLoading) {
-    return <h1>Loading...</h1>
-  }
 
   return (
     <div className={styles.container}>
@@ -41,6 +38,12 @@ export const Home = () => {
           list.map((gifData, key) => {
             return <Item key={key} {...gifData} />
           })}
+
+        {isLoading && (
+          <div className={styles.loader}>
+            <Spin size="large" />
+          </div>
+        )}
       </div>
     </div>
   )
