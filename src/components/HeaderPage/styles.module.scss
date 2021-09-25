@@ -1,8 +1,27 @@
 .header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
   margin-right: 15px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.copyright {
+  color: white;
+
+  a {
+    color: white;
+
+    &:hover,
+    &:focus {
+      color: white;
+    }
+  }
 }
