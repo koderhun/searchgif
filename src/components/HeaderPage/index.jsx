@@ -17,7 +17,7 @@ export const HeaderPage = () => {
 
       <Menu theme="dark" mode="horizontal">
         <Menu.Item>
-          <Link to="/">Home</Link>
+          <Link to="/searchgif">Home</Link>
         </Menu.Item>
       </Menu>
     </Header>
