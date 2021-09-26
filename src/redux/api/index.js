@@ -22,4 +22,26 @@ export const giphyApi = createApi({
   })
 })
 
+export const translateApi = createApi({
+  reducerPath: "translate",
+  tagTypes: ["Translate"],
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://translate.astian.org/translate"
+  }),
+  endpoints: (build) => ({
+    ru2en: build.mutation({
+      query: (text) => ({
+        method: "POST",
+        body: {
+          q: text,
+          source: "ru",
+          target: "en",
+          headers: { "Content-Type": "application/json" }
+        }
+      })
+    })
+  })
+})
+
 export const { useSearchQuery } = giphyApi
+export const { useRu2enMutation } = translateApi

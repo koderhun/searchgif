@@ -2,7 +2,7 @@ import React from "react"
 import { Image, Card, Button } from "antd"
 import styles from "./styles.module.scss"
 
-export const Item = (gifData) => {
+export const Item = ({ gifData }) => {
   const handleCopy = (text) => {
     navigator.clipboard.writeText(text)
   }

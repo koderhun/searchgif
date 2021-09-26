@@ -1,0 +1,11 @@
+.englishText {
+  margin-bottom: 10px;
+}
+
+.searchForm {
+  :global {
+    .ant-form-item {
+      margin-bottom: 10px;
+    }
+  }
+}

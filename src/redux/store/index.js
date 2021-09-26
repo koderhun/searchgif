@@ -1,10 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from "@reduxjs/toolkit"
 // import { rootReducer } from './reducers';
-import { giphyApi } from '../api'
+import { giphyApi, translateApi } from "../api"
 
 export const store = configureStore({
-    reducer: {
-        [giphyApi.reducerPath]: giphyApi.reducer
-    },
-    middleware: (getDefaultMiddlware) => getDefaultMiddlware().concat(giphyApi.middleware)
-});
+  reducer: {
+    [giphyApi.reducerPath]: giphyApi.reducer,
+    [translateApi.reducerPath]: translateApi.reducer
+  },
+  middleware: (getDefaultMiddlware) =>
+    getDefaultMiddlware().concat(giphyApi.middleware, translateApi.middleware)
+})
