@@ -7,6 +7,8 @@ export const Item = ({ gifData }) => {
     navigator.clipboard.writeText(text)
   }
 
+  console.log("g", gifData)
+
   return (
     <Card hoverable className={styles.card}>
       <Image
@@ -20,7 +22,7 @@ export const Item = ({ gifData }) => {
       />
       <Button
         type="default"
-        onClick={() => handleCopy(gifData.images.original.url)}
+        onClick={() => handleCopy(gifData.images.downsized_large.url)}
         className={styles.btn}
       >
         Копировать
