@@ -11,7 +11,6 @@ export const Home = () => {
   const list = data?.data
 
   const changeSearch = useCallback((value) => {
-    console.log("val", value)
     setSearch(value)
   })
 

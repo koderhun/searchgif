@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react"
-import { Form, Input, Button, Radio } from "antd"
+import { Form, Input, Button, Radio, Spin } from "antd"
 import { useRu2enMutation } from "../../redux/api"
 import styles from "./styles.module.scss"
 
 export const SearchForm = ({ changeSearch }) => {
   const [form] = Form.useForm()
-  const [ru2en] = useRu2enMutation()
+  const [ru2en, { isLoading }] = useRu2enMutation()
   const [englishText, setEnglishText] = useState("")
 
   const handleTranslate = async (text) => {
@@ -43,7 +43,12 @@ export const SearchForm = ({ changeSearch }) => {
       <Form.Item name="searchText">
         <Input placeholder="Search input" />
       </Form.Item>
-      <div className={styles.englishText}>English Text: {englishText}</div>
+      <div className={styles.englishText}>
+        <div className={styles.head}>English text:</div>
+        <div className={styles.transText}>
+          {isLoading ? <Spin /> : englishText}
+        </div>
+      </div>
       <Form.Item>
         <Button type="primary" htmlType="submit">
           Search
