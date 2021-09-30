@@ -16,9 +16,17 @@ export const HeaderPage = () => {
           style={{ fontSize: "20px" }}
         />
 
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          defaultSelectedKeys={["1"]}
+          className={styles.menu}
+        >
           <Menu.Item key="1">
             <Link to="/">Giphy</Link>
+          </Menu.Item>
+          <Menu.Item key="2">
+            <Link to="/music">Music</Link>
           </Menu.Item>
         </Menu>
       </div>

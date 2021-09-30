@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit"
-// import { rootReducer } from './reducers';
 import { giphyApi, translateApi } from "../api"
 
 export const store = configureStore({
