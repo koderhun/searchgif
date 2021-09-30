@@ -8,12 +8,12 @@ const { Content } = Layout
 
 export const Root = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/searchgif">
       <Layout>
         <HeaderPage />
         <Content className="container">
           <Switch>
-            <Route path="/searchgif" exact>
+            <Route path="/" exact>
               <Home />
             </Route>
           </Switch>

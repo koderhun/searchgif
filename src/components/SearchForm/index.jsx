@@ -3,6 +3,8 @@ import { Form, Input, Button, Radio, Spin } from "antd"
 import { useRu2enMutation } from "../../redux/api"
 import styles from "./styles.module.scss"
 
+const { Search } = Input
+
 export const SearchForm = ({ changeSearch }) => {
   const [form] = Form.useForm()
   const [ru2en, { isLoading }] = useRu2enMutation()
@@ -34,26 +36,26 @@ export const SearchForm = ({ changeSearch }) => {
       form={form}
       name="searchForm"
       layout="vertical"
-      onFinish={onFinish}
       initialValues={{
         remember: false
       }}
       className={styles.searchForm}
     >
       <Form.Item name="searchText">
-        <Input placeholder="Search input" />
+        <Search
+          placeholder="Введите фразу на русском или на английском"
+          enterButton="Поиск"
+          size="large"
+          onSearch={(searchText) => onFinish({ searchText })}
+        />
       </Form.Item>
+
       <div className={styles.englishText}>
-        <div className={styles.head}>English text:</div>
+        <div className={styles.head}>Текст на английском:</div>
         <div className={styles.transText}>
           {isLoading ? <Spin /> : englishText}
         </div>
       </div>
-      <Form.Item>
-        <Button type="primary" htmlType="submit">
-          Search
-        </Button>
-      </Form.Item>
     </Form>
   )
 }
