@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { Layout, Menu, Space } from "antd"
 import { HeartTwoTone } from "@ant-design/icons"
 import styles from "./styles.module.scss"
@@ -7,6 +7,8 @@ import styles from "./styles.module.scss"
 const { Header } = Layout
 
 export const HeaderPage = () => {
+  const location = useLocation()
+
   return (
     <Header className={styles.header}>
       <div className={styles.left}>
@@ -19,13 +21,14 @@ export const HeaderPage = () => {
         <Menu
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={["1"]}
+          defaultSelectedKeys={["/"]}
+          selectedKeys={[location.pathname]}
           className={styles.menu}
         >
-          <Menu.Item key="1">
+          <Menu.Item key="/">
             <Link to="/">Giphy</Link>
           </Menu.Item>
-          <Menu.Item key="2">
+          <Menu.Item key="/music">
             <Link to="/music">Music</Link>
           </Menu.Item>
         </Menu>

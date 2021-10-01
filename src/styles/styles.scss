@@ -4,3 +4,20 @@ body {
   background: #f0f2f5;
 }
 
+.container {
+  padding: 15px;
+  margin: 15px;
+  background: #fff;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+
+  &:empty {
+    display: none;
+  }
+}
