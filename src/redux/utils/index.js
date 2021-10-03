@@ -10,8 +10,3 @@ export const parseFolders = (body) => {
 
   return arrayFolder
 }
-
-export const setError = (state, action) => {
-  state.status = "rejected"
-  state.error = action.payload
-}

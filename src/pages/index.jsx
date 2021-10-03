@@ -2,7 +2,7 @@ import React from "react"
 import { Switch, Route, BrowserRouter } from "react-router-dom"
 import { Layout } from "antd"
 import { Home } from "./Home"
-import { Music } from "./Music"
+import { MusicFolder } from "./MusicFolder"
 import { MusicList } from "./MusicList"
 import { HeaderPage } from "../components/HeaderPage"
 
@@ -19,7 +19,7 @@ export const Root = () => {
               <Home />
             </Route>
             <Route path="/music" exact>
-              <Music />
+              <MusicFolder />
             </Route>
             <Route path="/music/:id" component={MusicList} />
           </Switch>
