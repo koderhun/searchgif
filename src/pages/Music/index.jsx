@@ -1,20 +1,30 @@
-import React from "react"
+import React, { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { Spin, Alert } from "antd"
+import { ListFolder } from "../../components/ListFolder"
+import { fetchMusics } from "../../redux/api/rtk/music"
 import styles from "./styles.module.scss"
-import { useGetMusicQuery } from "../../redux"
 
 export const Music = () => {
-  const { data, isLoading, isError } = useGetMusicQuery("")
-  console.log("data", data)
+  const dispatch = useDispatch()
+  const t = useSelector((state) => state.musics)
+  console.log("tttttttt", t)
+  const { musics, status, error } = useSelector((state) => state.musics)
+
+  console.log("test", musics, status, error)
+
+  useEffect(() => {
+    dispatch(fetchMusics())
+  }, [dispatch])
 
   return (
     <div className={styles.music}>
-      {isLoading && (
+      {status === "loading" && (
         <div className="loader">
           <Spin size="large" />
         </div>
       )}
-      {isError && (
+      {error && (
         <Alert
           message="Error"
           description="Ошибка запроса."
@@ -22,6 +32,7 @@ export const Music = () => {
           showIcon
         />
       )}
+      <ListFolder {...{ folders: musics }} />
     </div>
   )
 }
