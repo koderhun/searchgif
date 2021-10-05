@@ -1,10 +1,20 @@
 import React, { useEffect, useState } from "react"
 import { List } from "antd"
 import { PlayCircleFilled } from "@ant-design/icons"
+import { MUSIC_ROOT_URL } from "../../consts"
+import { Audio } from "../Audio"
 import styles from "./styles.module.scss"
 
-export const ListTrack = ({ tracks }) => {
+export const ListTrack = ({ folder, tracks }) => {
   const [showPlayer, setShowPlayer] = useState(false)
+  const [thisTrack, setThisTrack] = useState("")
+
+  const toggleTrack = ({ name }) => {
+    const trackUrl = `${MUSIC_ROOT_URL}${encodeURI(folder)}/${encodeURI(name)}`
+    console.log("ttt", trackUrl)
+    setThisTrack(trackUrl)
+    setShowPlayer(true)
+  }
 
   return (
     <div className={styles.ListTrack}>
@@ -15,7 +25,7 @@ export const ListTrack = ({ tracks }) => {
         renderItem={(name) => (
           <List.Item
             className={styles.item}
-            onClick={() => setShowPlayer(!showPlayer)}
+            onClick={() => toggleTrack({ name })}
           >
             <div className={styles.itemTrack}>
               <PlayCircleFilled />
@@ -24,7 +34,11 @@ export const ListTrack = ({ tracks }) => {
           </List.Item>
         )}
       />
-      {showPlayer && <div className={styles.playerContainer}>Player</div>}
+      {true && (
+        <div className={styles.playerContainer}>
+          <Audio url={thisTrack} />
+        </div>
+      )}
     </div>
   )
 }

@@ -18,7 +18,7 @@ export const MusicList = ({ match }) => {
   return (
     <div className={styles.music}>
       <UtilsPage {...{ status, error }} />
-      <ListTrack {...{ tracks: list }} />
+      <ListTrack {...{ folder: idFolder, tracks: list }} />
     </div>
   )
 }

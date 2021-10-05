@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { List, Typography } from "antd"
+import { List } from "antd"
 
 export const ListFolder = ({ folders }) => {
   console.log("folders", folders)
