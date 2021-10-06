@@ -34,7 +34,7 @@ export const ListTrack = ({ folder, tracks }) => {
           </List.Item>
         )}
       />
-      {true && (
+      {showPlayer && (
         <div className={styles.playerContainer}>
           <Audio url={thisTrack} />
         </div>

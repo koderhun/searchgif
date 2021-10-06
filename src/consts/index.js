@@ -1,1 +1,1 @@
-export const MUSIC_ROOT_URL = `http://music.p1ratrulezzz.com/FLAC/`
+export const MUSIC_ROOT_URL = `https://music.p1ratrulezzz.com/FLAC/`
