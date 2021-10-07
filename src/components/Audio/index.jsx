@@ -3,9 +3,9 @@ import styles from "./styles.module.scss"
 import useAudioPlayer from "../../hooks/useAudioPlayer"
 import { Play } from "./components/Play"
 import { Pause } from "./components/Pause"
-import { Bar } from "../Bar"
+import { Bar } from "./components/Bar"
 
-export const Audio = ({ url }) => {
+export const Audio = ({ url, name }) => {
   const { curTime, duration, playing, setPlaying, setClickedTime } =
     useAudioPlayer()
 
@@ -23,6 +23,7 @@ export const Audio = ({ url }) => {
             <Play handleClick={() => setPlaying(true)} />
           )}
         </div>
+        <div className={styles.trackName}>{name}</div>
         <Bar
           curTime={curTime}
           duration={duration}

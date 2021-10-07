@@ -7,12 +7,12 @@ import styles from "./styles.module.scss"
 
 export const ListTrack = ({ folder, tracks }) => {
   const [showPlayer, setShowPlayer] = useState(false)
-  const [thisTrack, setThisTrack] = useState("")
+  const [thisTrack, setThisTrack] = useState({ url: "", name: "" })
 
   const toggleTrack = ({ name }) => {
     const trackUrl = `${MUSIC_ROOT_URL}${encodeURI(folder)}/${encodeURI(name)}`
     console.log("ttt", trackUrl)
-    setThisTrack(trackUrl)
+    setThisTrack({ url: thisTrack, name: name })
     setShowPlayer(true)
   }
 
@@ -36,7 +36,7 @@ export const ListTrack = ({ folder, tracks }) => {
       />
       {showPlayer && (
         <div className={styles.playerContainer}>
-          <Audio url={thisTrack} />
+          <Audio url={thisTrack.url} name={thisTrack.name} />
         </div>
       )}
     </div>

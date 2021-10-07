@@ -3,8 +3,8 @@ import { PauseCircleFilled } from "@ant-design/icons"
 
 export const Pause = ({ handleClick }) => {
   return (
-    <button className="player__button" onClick={() => handleClick()}>
-      <PauseCircleFilled />
+    <button onClick={() => handleClick()}>
+      <PauseCircleFilled style={{ color: "#52c41a", fontSize: "60px" }} />
     </button>
   )
 }

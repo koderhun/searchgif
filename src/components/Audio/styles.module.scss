@@ -1,0 +1,22 @@
+.control {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.playpause {
+  margin: 20px auto;
+  button {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+}
+
+.trackName {
+  font-size: 18px;
+  text-align: center;
+}
