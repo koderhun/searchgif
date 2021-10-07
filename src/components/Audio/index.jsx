@@ -6,6 +6,7 @@ import { Pause } from "./components/Pause"
 import { Bar } from "./components/Bar"
 
 export const Audio = ({ url, name }) => {
+  console.log("ur", url, name)
   const { curTime, duration, playing, setPlaying, setClickedTime } =
     useAudioPlayer()
 

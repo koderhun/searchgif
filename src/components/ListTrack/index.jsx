@@ -11,11 +11,10 @@ export const ListTrack = ({ folder, tracks }) => {
 
   const toggleTrack = ({ name }) => {
     const trackUrl = `${MUSIC_ROOT_URL}${encodeURI(folder)}/${encodeURI(name)}`
-    console.log("ttt", trackUrl)
-    setThisTrack({ url: thisTrack, name: name })
+    setThisTrack({ url: trackUrl, name: name })
     setShowPlayer(true)
   }
-
+  console.log("thisTrack", thisTrack)
   return (
     <div className={styles.ListTrack}>
       <List
