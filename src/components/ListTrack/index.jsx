@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react"
+import React, { useState, useCallback, useEffect } from "react"
 import { List } from "antd"
 import { PlayCircleFilled } from "@ant-design/icons"
 import { MUSIC_ROOT_URL, FILE_EXTEN } from "../../consts"
@@ -10,24 +10,22 @@ export const ListTrack = ({ folder, tracks }) => {
   const [thisTrack, setThisTrack] = useState({ url: "", name: "" })
   let tracksMod = []
 
-  if(tracks.length !== 0) {
+  if (tracks.length !== 0) {
     tracks.map((v, k) => {
-      const ext = v.substr(v.lastIndexOf('.'), v.length);
+      const ext = v.substr(v.lastIndexOf("."), v.length)
       FILE_EXTEN.map((v2) => {
-        if(v2 === ext) {
+        if (v2 === ext) {
           tracksMod.push(v)
         }
       })
     })
   }
 
-
-
   const toggleTrack = useCallback(({ name }) => {
     const trackUrl = `${MUSIC_ROOT_URL}${encodeURI(folder)}/${encodeURI(name)}`
     setThisTrack({ url: trackUrl, name: name })
     setShowPlayer(true)
-  }, [showPlayer, thisTrack])
+  }, [tracks, folder])
 
   return (
     <div className={styles.ListTrack}>

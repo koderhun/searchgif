@@ -37,6 +37,11 @@ function useAudioPlayer() {
     }
   })
 
+  useEffect(() => {
+    var sounds = document.getElementsByTagName("audio")
+    for (let i = 0; i < sounds.length; i++) sounds[i].pause()
+  }, [playing])
+
   return {
     curTime,
     duration,

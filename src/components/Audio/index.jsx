@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styles from "./styles.module.scss"
 import useAudioPlayer from "../../hooks/useAudioPlayer"
 import { Play } from "./components/Play"
@@ -6,7 +6,6 @@ import { Pause } from "./components/Pause"
 import { Bar } from "./components/Bar"
 
 export const Audio = ({ url, name }) => {
-  console.log("ur", url, name)
   const { curTime, duration, playing, setPlaying, setClickedTime } =
     useAudioPlayer()
 

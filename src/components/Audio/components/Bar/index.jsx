@@ -39,6 +39,14 @@ export const Bar = (props) => {
     })
   }
 
+  const setPercentage = (curPercentage) => {
+    const newPercentage = curPercentage - 2;
+    if(newPercentage < 3) {
+      return 0
+    }
+    return newPercentage
+  }
+
   return (
     <div className={styles.bar}>
       <span className={styles.time1}>{formatDuration(curTime)}</span>
@@ -53,7 +61,7 @@ export const Bar = (props) => {
       >
         <span
           className={styles.knob}
-          style={{ left: `${curPercentage - 2}%` }}
+          style={{ left: `${setPercentage(curPercentage)}%` }}
         />
       </div>
 
