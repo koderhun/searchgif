@@ -26,7 +26,7 @@ export const HeaderPage = () => {
           className={styles.menu}
         >
           <Menu.Item key="/">
-            <Link to="/">Giphy</Link>
+            <Link  to="/">Giphy</Link>
           </Menu.Item>
           <Menu.Item key="/music">
             <Link to="/music">Music</Link>

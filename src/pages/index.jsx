@@ -21,7 +21,7 @@ export const Root = () => {
             <Route path="/music" exact>
               <MusicFolder />
             </Route>
-            <Route path="/music/:id" component={MusicList} />
+            <Route path="/music/:id" component={MusicList}/>
           </Switch>
         </Content>
       </Layout>
