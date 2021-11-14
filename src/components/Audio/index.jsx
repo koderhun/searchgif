@@ -9,6 +9,13 @@ export const Audio = ({ url, name }) => {
   const { curTime, duration, playing, setPlaying, setClickedTime } =
     useAudioPlayer()
 
+  useEffect(() => {
+    setPlaying(true)
+    return () => {
+      setPlaying(false)
+    }
+  }, [url, setPlaying])
+
   return (
     <div className={styles.audio}>
       <audio id="audio">
